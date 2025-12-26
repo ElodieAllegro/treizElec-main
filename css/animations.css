@@ -317,16 +317,9 @@
     transform: translate3d(0, -8px, 0);
 }
 
-.realization-item:hover .realization-image img {
-    transform: none;
-}
-
 .realization-image {
     overflow: hidden;
     border-radius: var(--border-radius);
-}
-.realization-image img {
-    transition: transform 0.8s var(--animation-easing-out);
 }
 
 .realization-overlay {
@@ -519,7 +512,7 @@
     }
     
     .realization-item:hover {
-        transform: translate3d(0, -4px, 0) scale3d(1.01, 1.01, 1);
+        transform: translate3d(0, -4px, 0);
     }
     .scroll-indicator {
     color: #fafbfc;
