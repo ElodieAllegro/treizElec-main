@@ -509,6 +509,55 @@ background-color: #44576B;
     width: auto;
 }
 
+/* Réalisations - Grille Simple */
+.realizations-grid-simple {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.realization-card-simple {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.realization-card-simple img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.realization-info {
+    padding: 1.5rem;
+}
+
+.realization-info h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.realization-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .realizations-grid-simple {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .realization-card-simple img {
+        height: 200px;
+    }
+}
+
 /* Footer */
 .footer {
     background-color: var(--text-color);
