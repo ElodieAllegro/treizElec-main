@@ -3,12 +3,12 @@
     --primary-color: #39BFFF;
     --secondary-color: #2484C6;
     --accent-color: #00C851;
-    --text-color: #333333;
+    --text-color: #00000;
     --text-light: #666666;
     --background-color: #FFFFFF;
     --gray-light: #F8F9FA;
     --gray-medium: #E9ECEF;
-    --gray-dark: #44576;
+    --gray-dark: #44576B;
     --border-color: #DEE2E6;
     --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
