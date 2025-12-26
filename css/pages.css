@@ -345,7 +345,6 @@
 
 @media (max-width: 768px) {
     .contact-form,
-    .contact-info,
     .auth-container,
     .legal-content {
         padding: 2rem;
