@@ -331,7 +331,7 @@ function requestQuote() {
     
     const emailBody = `Bonjour,\n\nJe souhaite obtenir un devis pour les services suivants :\n\n${servicesText}\n\nTotal estimé : ${total}€\n\nCordialement`;
     
-    window.location.href = `mailto:contact@treize-elec.com?subject=Demande de devis&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = `mailto:treizelec.pro@gmail.com?subject=Demande de devis&body=${encodeURIComponent(emailBody)}`;
 }
 
 // Réalisations
