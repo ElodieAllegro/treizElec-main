@@ -636,6 +636,7 @@ background-color: #44576B;
     height: 60px;
     width: auto;
     object-fit: contain;
+    border-radius: 10%; 
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.9;
 }
