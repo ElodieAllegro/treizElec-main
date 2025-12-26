@@ -1,0 +1,550 @@
+/* Animations CSS avancées inspirées de Green Got */
+
+/* Variables pour les animations */
+:root {
+    --animation-duration: 1.2s;
+    --animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --animation-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --animation-easing-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --animation-easing-out: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Optimisations GPU */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force GPU acceleration pour les éléments animés */
+.animate-on-scroll,
+.service-card,
+.realization-item,
+.testimonial-card,
+.partner-logo,
+.hero-title,
+.hero-subtitle,
+.btn {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Animations de base */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(60px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translate3d(-60px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale3d(0.85, 0.85, 1);
+    }
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    40% {
+        transform: translate3d(0, -12px, 0);
+    }
+    60% {
+        transform: translate3d(0, -6px, 0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -12px, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.05, 1.05, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Classes d'animation initiales */
+.animate-fade-up {
+    animation: fadeUp var(--animation-duration) var(--animation-easing-out) forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    animation: slideUp var(--animation-duration) var(--animation-easing-out) forwards;
+}
+
+.animate-slide-left {
+    opacity: 0;
+    transform: translate3d(60px, 0, 0);
+    animation: slideLeft var(--animation-duration) var(--animation-easing-out) forwards;
+}
+
+.animate-slide-right {
+    opacity: 0;
+    transform: translate3d(-60px, 0, 0);
+    animation: slideRight var(--animation-duration) var(--animation-easing-out) forwards;
+}
+
+.animate-scale-up {
+    opacity: 0;
+    transform: scale3d(0.85, 0.85, 1);
+    animation: scaleUp var(--animation-duration) var(--animation-easing-bounce) forwards;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Animations au scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    transition: opacity var(--animation-duration) var(--animation-easing-out),
+                transform var(--animation-duration) var(--animation-easing-out);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.animate-on-scroll.slide-left {
+    transform: translate3d(60px, 0, 0);
+}
+
+.animate-on-scroll.slide-left.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.animate-on-scroll.slide-right {
+    transform: translate3d(-60px, 0, 0);
+}
+
+.animate-on-scroll.slide-right.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.animate-on-scroll.scale-up {
+    transform: scale3d(0.85, 0.85, 1);
+}
+
+.animate-on-scroll.scale-up.visible {
+    transform: scale3d(1, 1, 1);
+}
+
+/* Animations spécifiques aux composants */
+
+/* Hero Section */
+.hero-title {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    animation: slideUp 1.2s var(--animation-easing-out) 0.6s forwards;
+}
+
+.hero-subtitle {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    animation: slideUp 1.2s var(--animation-easing-out) 0.9s forwards;
+}
+
+.hero .btn {
+    opacity: 0;
+    transform: scale3d(0.85, 0.85, 1);
+    animation: scaleUp 1s var(--animation-easing-bounce) 1.3s forwards;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #0844E9; /* Bleu électrique */
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+.scroll-indicator svg {
+    width: 40px; /* Plus gros qu'avant (était 24px) */
+    height: 40px;
+    filter: drop-shadow(0 0 8px rgba(8, 68, 233, 0.5)); /* Effet lumineux */
+}
+
+/* Service Cards */
+.service-card {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    transition: opacity 0.8s var(--animation-easing-out), transform 0.8s var(--animation-easing-out);
+}
+
+.service-card.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.service-card:hover {
+    transform: translate3d(0, -12px, 0) scale3d(1.02, 1.02, 1);
+    box-shadow: 0 20px 40px rgba(0, 158, 255, 0.15);
+}
+
+.service-card:hover .service-icon {
+    transform: scale3d(1.1, 1.1, 1) rotateZ(5deg);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.service-icon {
+    transition: transform 0.5s var(--animation-easing-bounce), background 0.3s ease;
+}
+
+/* Stats Counter Animation */
+.counter {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 1s var(--animation-easing-out), transform 1s var(--animation-easing-out);
+}
+
+.counter.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.counter.counting .stat-number {
+    transform: scale3d(1.1, 1.1, 1);
+}
+
+/* Réalisations */
+.realization-item {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0) scale3d(0.95, 0.95, 1);
+    transition: opacity 0.8s var(--animation-easing-out), transform 0.8s var(--animation-easing-out);
+}
+
+.realization-item.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+
+.realization-item:hover {
+    transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
+}
+
+.realization-item:hover .realization-image img {
+    transform: scale3d(1.1, 1.1, 1);
+}
+
+.realization-image {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+.realization-image img {
+    transition: transform 0.8s var(--animation-easing-out);
+}
+
+.realization-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 0.5s var(--animation-easing-out);
+}
+
+.realization-item:hover .realization-overlay {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Testimonials Slider */
+.testimonials-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.8s var(--animation-easing-out);
+    gap: 2rem;
+}
+
+.testimonial-card {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 0.8s var(--animation-easing-out), transform 0.8s var(--animation-easing-out);
+    min-width: 100%;
+}
+
+.testimonial-card.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.testimonial-card:hover {
+    transform: translate3d(0, -8px, 0);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    margin-right: 1rem;
+    transition: transform 0.4s var(--animation-easing-out);
+}
+
+.testimonial-card:hover .author-avatar {
+    transform: scale3d(1.1, 1.1, 1);
+}
+
+/* Partners */
+.partner-logo {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 0.8s var(--animation-easing-out), 
+                transform 0.8s var(--animation-easing-out),
+                filter 0.3s ease;
+    filter: grayscale(100%) opacity(0.7);
+}
+
+.partner-logo.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: translate3d(0, -8px, 0) scale3d(1.05, 1.05, 1);
+}
+
+/* CTA Section */
+.cta-content {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    transition: opacity 1s var(--animation-easing-out), transform 1s var(--animation-easing-out);
+}
+
+.cta-content.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.cta-buttons .btn {
+    transition: transform 0.4s var(--animation-easing-out), box-shadow 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: 0 10px 20px rgba(0, 158, 255, 0.3);
+}
+
+/* Footer */
+.footer-section {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 0.8s var(--animation-easing-out), transform 0.8s var(--animation-easing-out);
+}
+
+.footer-section.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Parallax Effects */
+.parallax-element {
+    transition: none;
+}
+
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Loading Animation */
+.loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.4s var(--animation-easing-out);
+}
+
+.hover-lift:hover {
+    transform: translate3d(0, -8px, 0);
+}
+
+.hover-scale {
+    transition: transform 0.4s var(--animation-easing-out);
+}
+
+.hover-scale:hover {
+    transform: scale3d(1.05, 1.05, 1);
+}
+
+.hover-glow {
+    transition: box-shadow 0.4s var(--animation-easing-out);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 158, 255, 0.4);
+}
+
+/* Stagger Animation */
+.stagger-animation > * {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 0.8s var(--animation-easing-out), transform 0.8s var(--animation-easing-out);
+}
+
+.stagger-animation.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-animation.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-animation.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-animation.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-animation.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-animation.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+.stagger-animation.visible > * {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Responsive Animations */
+@media (max-width: 768px) {
+    .animate-on-scroll {
+        transform: translate3d(0, 40px, 0);
+    }
+    
+    .service-card:hover {
+        transform: translate3d(0, -6px, 0) scale3d(1.01, 1.01, 1);
+    }
+    
+    .realization-item:hover {
+        transform: translate3d(0, -4px, 0) scale3d(1.01, 1.01, 1);
+    }
+    .scroll-indicator {
+    color: #fafbfc;
+    }
+
+.scroll-indicator svg {
+    width: 40px; /* Plus gros qu'avant (était 24px) */
+    height: 40px;
+    filter: drop-shadow(0 0 8px rgba(8, 68, 233, 0.5)); /* Effet lumineux */
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .parallax-element {
+        transform: translate3d(0, 0, 0) !important;
+    }
+}
+
+/* Nettoyage après animation */
+.animation-complete {
+    will-change: auto;
+}
