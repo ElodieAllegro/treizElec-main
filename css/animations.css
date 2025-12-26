@@ -304,21 +304,21 @@
 /* Réalisations */
 .realization-item {
     opacity: 0;
-    transform: translate3d(0, 60px, 0) scale3d(0.95, 0.95, 1);
+    transform: translate3d(0, 60px, 0);
     transition: opacity 0.8s var(--animation-easing-out), transform 0.8s var(--animation-easing-out);
 }
 
 .realization-item.visible {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transform: translate3d(0, 0, 0);
 }
 
 .realization-item:hover {
-    transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
+    transform: translate3d(0, -8px, 0);
 }
 
 .realization-item:hover .realization-image img {
-    transform: scale3d(1.1, 1.1, 1);
+    transform: none;
 }
 
 .realization-image {
