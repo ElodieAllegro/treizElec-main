@@ -526,7 +526,6 @@ background-color: #44576B;
 
 .realization-card-simple img {
     width: 100%;
-    height: 250px;
     object-fit: cover;
     display: block;
 }
