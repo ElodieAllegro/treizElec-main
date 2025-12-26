@@ -779,9 +779,9 @@ background-color: #44576B;
     }
 
     .header-top-content {
-        flex-direction: row;
-        justify-content: center;
-        gap: 1.5rem;
+        flex-direction: column;
+        justify-content: end;
+        gap: 1rem;
     }
 
     .top-contact-link {
@@ -837,8 +837,8 @@ background-color: #44576B;
 @media (max-width: 768px) {
     .hero {
     position: relative;
-      margin-top: 10px;
-    height: 100vh;
+    margin-top: 100px;
+    height: 110vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -914,8 +914,9 @@ background-color: #44576B;
 
 @media (max-width: 480px) {
     .hero-content {
-        margin-left: 0;
-        padding: 0 15px;
+      margin-left: 0;
+      padding: 0 15px;
+      margin-top: 150px;
     }
     
     .hero-title {
