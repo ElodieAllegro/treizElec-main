@@ -522,6 +522,7 @@
     width: 40px; /* Plus gros qu'avant (était 24px) */
     height: 40px;
     filter: drop-shadow(0 0 8px rgba(8, 68, 233, 0.5)); /* Effet lumineux */
+  
 }
 }
 
