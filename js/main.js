@@ -29,15 +29,6 @@ let services = [
         selected: false
     },
     {
-        id: 4,
-        name: 'Installation domotique',
-        description: 'Installation système domotique connecté',
-        price: 300,
-        category: 'Domotique',
-        quantity: 0,
-        selected: false
-    },
-    {
         id: 5,
         name: 'Éclairage LED',
         description: 'Installation éclairage LED économique',
@@ -81,14 +72,6 @@ let realizations = [
         location: 'Zone Nord',
         description: 'Installation électrique pour entrepôt industriel',
         image: '/assets/img/realisation3.png'
-    },
-    {
-        id: 4,
-        title: 'Système domotique',
-        category: 'Domotique',
-        location: 'Aix-en-Provence',
-        description: 'Installation système domotique maison connectée',
-        image: '/assets/img/realisation4.png'
     }
 ];
 
@@ -654,7 +637,7 @@ function showAddServiceModal() {
                             <option value="Installation">Installation</option>
                             <option value="Dépannage">Dépannage</option>
                             <option value="Rénovation">Rénovation</option>
-                            <option value="Domotique">Domotique</option>
+                            <option value="Industriel">Industriel</option>
                         </select>
                     </div>
                     <div class="form-group">
