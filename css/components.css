@@ -837,6 +837,7 @@ background-color: #44576B;
 @media (max-width: 768px) {
     .hero {
     position: relative;
+      margin-top: 10px;
     height: 100vh;
     display: flex;
     align-items: center;
